@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="App2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicElementBrush}">
+
+
+
+    <Grid>
+        <MediaPlayerElement x:Name="mediaPlayer" AreTransportControlsEnabled="True">
+            <MediaPlayerElement.TransportControls>
+                <local:CustomMediaTransportControls IsCompact="False"
+                                                    IsZoomButtonVisible="True"
+                                                    IsZoomEnabled="True"
+                                                    NextClicked="NextBtn_NextClicked"
+                                                    ControlPanelOpened="OpenControlPanel_ControlPanelOpened" >
+                </local:CustomMediaTransportControls>
+            </MediaPlayerElement.TransportControls>
+        </MediaPlayerElement>
+
+        <!-- **************************************** -->
+        
+
+        <!--          AUTHENTICATION DIALOG          -->
+        <ContentDialog x:Name="AuthenticationDialog"
+                       Title="TPortal: Control Panel"
+                       PrimaryButtonText="OK"
+                       IsPrimaryButtonEnabled="False"
+                       CloseButtonText="Cancel"
+                       PrimaryButtonClick="Authenticate_Click"
+                       CloseButtonClick="AuthenticationDialog_Cancel"
+                       DefaultButton="Primary">
+
+            <StackPanel>
+                <PasswordBox x:Name="Password" 
+                             Header="Enter Password"
+                             PasswordChanged="CheckPassword_PasswordChanged"/>
+            </StackPanel>
+        </ContentDialog>
+
+        <!-- **************************************** -->
+
+
+        <!--          CREATE PASSWORD DIALOG          -->
+        <ContentDialog x:Name="CreatePasswordDialog"
+                       Title="Create Password"
+                       PrimaryButtonText="OK"
+                       IsPrimaryButtonEnabled="False"
+                       CloseButtonText="Cancel"
+                       PrimaryButtonClick="SetPassword_Click"
+                       CloseButtonClick="CreatePasswordDialog_Cancel"
+                       DefaultButton="Primary">
+            <StackPanel>
+                <PasswordBox x:Name="NewPassword" 
+                             Header="New Password" />
+
+                <PasswordBox x:Name="ConfirmPassword" 
+                                 Header="Confirm Password" 
+                                 PasswordChanged="ConfirmPassword_PasswordChanged"/>
+            </StackPanel>
+        </ContentDialog>
+        <!-- **************************************** -->
+
+        <TextBlock x:Name="timer_label"
+                   FontSize="100"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Visibility="Visible"
+                   TextWrapping="Wrap"/>
+    </Grid>
+    
+
+</Page>

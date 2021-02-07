@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="App2.SetupScreens.SetupScreen1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App2.SetupScreens"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicElementBrush}">
+
+    <Grid>
+        <TextBlock Text="Additional Settings" 
+                           FontSize="35"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top" Margin="0,80,0,0"/>
+
+        <TextBlock Text="These settings can later be changed in the app's Control Panel." 
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top" Margin="0,125,0,0"/>
+
+        <Slider x:Name="trackbar"
+                    Maximum="10"
+                    Minimum="1"
+                    Width="300"
+                    Header="Videos Per Day"
+                    ValueChanged="trackbar_ValueChanged"
+                    HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,220,0,0"/>
+
+        <!-- Label for Slider's Value -->
+        <TextBlock Text="{Binding ElementName=trackbar, Path=Value}" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Margin="507,247,0,0" />
+
+        <TextBlock FontSize="13"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top" Margin="0,336,0,0">
+                Drag the slider to select the number of videos<LineBreak />
+                you would like your child to watch in a day.
+        </TextBlock>
+
+
+    </Grid>
+</Page>
